@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<eclipse-userlibraries>
+  <library name="Maven: junit:junit:4.1">
+    <archive path="C:/mavenLocalRepository/junit/junit/4.1/junit-4.1.jar" />
+  </library>
+  <library name="Maven: commons-lang:commons-lang:2.6">
+    <archive path="C:/mavenLocalRepository/commons-lang/commons-lang/2.6/commons-lang-2.6.jar" />
+  </library>
+  <library name="ExtJs4.1">
+    <archive path="C:/JSLibraries/extjs/ext-all.js" />
+    <archive path="C:/JSLibraries/extjs/ext-all-debug.js" />
+  </library>
+</eclipse-userlibraries>
+
