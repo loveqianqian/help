@@ -1,4 +1,4 @@
-package com.ghc.gather.dynamicClient;
+package com.ghc.gather.dynamicClient.wzx;
 
 
 import org.apache.cxf.endpoint.Client;
@@ -22,7 +22,7 @@ public class OaClient {
     private static Map<String, Client> cxfClients = new HashMap<>();
 
     public static void main(String[] args) throws Exception {
-        Client client = factory.createClient("http://localhost:8081/oaWebService?wsdl");
+        Client client = factory.createClient("http://localhost:8082/oaWebService?wsdl");
         HTTPConduit http = (HTTPConduit) client.getConduit();
         HTTPClientPolicy httpClientPolicy = new HTTPClientPolicy();
         httpClientPolicy.setConnectionTimeout(10000L);
@@ -30,7 +30,7 @@ public class OaClient {
         httpClientPolicy.setReceiveTimeout(10000L);
         http.setClient(httpClientPolicy);
 
-        Object[] objects = client.invoke("getDept", "<payload><request><serialNo>211</serialNo><supDeptCode>A001</supDeptCode><deptCode>B001</deptCode><deptName>消化内科</deptName><deptProfile>xh</deptProfile><isHomePage>0</isHomePage><describe>消化内科</describe><domainId>0</domainId><actionType>modify</actionType></request></payload>");
+        Object[] objects = client.invoke("setDept", "<payload><request><serialNo>211</serialNo><supDeptCode>A001</supDeptCode><deptCode>B001</deptCode><deptName>消化内科</deptName><deptProfile>xh</deptProfile><isHomePage>0</isHomePage><describe>消化内科</describe><domainId>0</domainId><actionType>modify</actionType></request></payload>");
 
         System.out.println(objects[0].toString());
     }
