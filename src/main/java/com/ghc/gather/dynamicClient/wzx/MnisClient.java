@@ -22,7 +22,7 @@ public class MnisClient {
     private static Map<String, Client> cxfClients = new HashMap<>();
 
     public static void main(String[] args) throws Exception {
-        Client client = factory.createClient("http://localhost:8082/mnisWebService?wsdl");
+        Client client = factory.createClient("http://127.0.0.1:10010/mnisWebService?wsdl");
         HTTPConduit http = (HTTPConduit) client.getConduit();
         HTTPClientPolicy httpClientPolicy = new HTTPClientPolicy();
         httpClientPolicy.setConnectionTimeout(10000L);
@@ -30,15 +30,13 @@ public class MnisClient {
         httpClientPolicy.setReceiveTimeout(10000L);
         http.setClient(httpClientPolicy);
 
-        Object[] objects = client.invoke("getTurnDeptTurnBed", "<payload>" +
-                "    <request>" +
-                "        <items>" +
-                "            <admission_id>297659_1</admission_id>" +
-                "            <admission_id>297658_1</admission_id>" +
-                "        </items>" +
-                "        <user_id>0020</user_id>" +
-                "    </request>" +
-                "</payload>");
+        Object[] objects = client.invoke("send", 
+                "<payload>" +
+                        "<request>" +
+                        "<dept_code></dept_code>" +
+                        "<user_id>0020</user_id>" +
+                        "</request>" +
+                        "</payload>");
 
         System.out.println(objects[0].toString());
     }
